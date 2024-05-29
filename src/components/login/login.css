@@ -1,0 +1,68 @@
+.login {
+    width: 90vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    .item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            input {
+                padding: 10px;
+                bottom: none;
+                outline: auto;
+                background-color: rgba(173, 129, 177, 0.6);
+                color: rgb(17, 16, 16);
+                border-radius: 10px;
+            }
+            label {
+                width: 80%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                text-decoration: underline;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    opacity: 0.8;
+                }
+            }
+            button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                background-color: rgb(29, 71, 55);
+                color: white;
+                border-radius: 10px;
+                cursor: pointer;
+                font-weight: 500;
+
+                &:disabled {
+                    cursor: not-allowed;
+                    background-color: rgb(24, 198, 207);
+                }
+            }
+        }
+    }
+    .separator {
+        height: 80%;
+        width: 2px;
+        background-color: rgba(127, 255, 212, 0.808);
+    }
+}

@@ -1,7 +1,26 @@
+
 # ChatApp
 
-chatapp is a real-time messaging application developed using modern web
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+chatapp is a real-time messaging application developed using modern web technology.
+
+## chatapp structure
+1. start o our terminal install
+   npm create vite@latest chatapp
+   
+2. Then create my app call our directory
+   cd chatapp
+   
+3. then install some module
+   npm install
+   
+4. launch our app
+   npm run dev
+## for additional real-time chat
+
+install for chat and real-time
+npm i timeago
+npm i zustand
+
 
 Currently, two official plugins are available:
 

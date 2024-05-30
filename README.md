@@ -4,7 +4,7 @@
 chatapp is a real-time messaging application developed using modern web technology.
 
 ## chatapp structure
-1. start o our terminal install
+1. start our terminal install
  ```
    npm create vite@latest chatapp
 ```

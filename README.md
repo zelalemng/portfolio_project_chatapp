@@ -24,7 +24,7 @@ chatapp is a real-time messaging application developed using modern web technolo
 ```
 ## for additional real-time chat
 
-install for chat and real-time
+install **for chat and real-time**
 ```
 npm i timeago
 npm i zustand

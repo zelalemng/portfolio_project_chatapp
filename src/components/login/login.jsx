@@ -95,11 +95,7 @@ export const Login = () => {
                         <button disabled={loading}>{loading ? "Loading" : "Sign In"}</button>
                     </form>
                 </div>
-                <div className='separator'>
-                    <div className='logo'>
-                        <img src="./chat.png" alt="" />
-                    </div>
-                </div>
+                <div className='separator'></div>
                 <div className='item'>
                 <h2>Create an Account</h2>
                     <form onSubmit={handleRegister}>

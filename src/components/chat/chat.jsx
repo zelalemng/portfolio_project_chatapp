@@ -1,3 +1,4 @@
+// Importing necessary hooks and resources
 import React, { useEffect, useState, useRef} from 'react';
 import './chat.css';
 import EmojiPicker from 'emoji-picker-react';

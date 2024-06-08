@@ -1,3 +1,4 @@
+// import necessary libraries and components.
 import { useEffect, useState } from 'react'
 import reactLogo from './chat.png'
 import viteLogo from '/chat.png'
@@ -12,13 +13,17 @@ import { useUserStore } from './lib/userStore';
 import { auth } from './lib/firebase';
 import { useChatStore } from './lib/chatStore'
 
+//Main App component
 function App() {
   const { currentUser, isLoading, fetchUserInfo } = useUserStore();
   const { chatId } = useChatStore();
   //const user = false;
 
+  // useEffect hook to handle authentication state changes
   useEffect(() => {
+    // subscribing to authentication state changes
     const unSub = onAuthStateChanged(auth, (user) => {
+      // feching user Id
       fetchUserInfo(user?.uid)
       //console.log(user.uid);
     });
@@ -27,21 +32,22 @@ function App() {
       unSub();
     }; 
   }, [fetchUserInfo]);
-  //console.log(currentUser);
-
+  
+  // conditional rendering based on loading state and current user
  if (isLoading) return <div className='loading'>Loading...</div>;
 
   return (
     <>
-      <div className='container'>
+      <div className='container'> 
+      
         {currentUser ? (
           <>
             <List />
-            {chatId && <Chat />}
-            {chatId && <Detail />}
+            {chatId && <Chat />}  {/* Render Chat component if chatId exists */}
+            {chatId && <Detail />} {/* Render Chat component if chatId exists */}
           </>
         ) : (
-          <Login />
+          <Login /> // Render Login component if no user is logged in
         )}
         <Notification />
       </div>
@@ -49,4 +55,5 @@ function App() {
   );
 };
 
+// Exporting App component as default
 export default App;

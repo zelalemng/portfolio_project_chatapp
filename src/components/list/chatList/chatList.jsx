@@ -1,3 +1,4 @@
+// Importing necessary libraries and components
 import React, { useEffect, useState } from 'react';
 import './chatList.css';
 import Adduser from './addUser/adduser';
@@ -6,6 +7,7 @@ import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from '../../../lib/firebase';
 import { useChatStore } from '../../../lib/chatStore';
 
+// chatList component
 export const ChatList = () => {
     const [chats, setChats] = useState([]);
     const [addMode, setAddMode] = useState(false);
@@ -14,6 +16,7 @@ export const ChatList = () => {
     const { currentUser } = useUserStore();
     const { chatId, changeChat } = useChatStore();
 
+    // Fetch user chats when the component mounts
     useEffect(() => {
         const unSub = onSnapshot(
             doc(db, "userchats", currentUser.id), 
@@ -39,29 +42,31 @@ export const ChatList = () => {
 
     const handleSelect = async (chat) => {
         const userChats = chats.map((item) => {
-            const { user, ...rest } = item;
+            const { user, ...rest } = item; // Removing user data from chat item
             return rest;
         });
 
         const chatIndex = userChats.findIndex(
-            (item) => item.chatId === chat.chatId
+            (item) => item.chatId === chat.chatId // Finding the index of the selected
         );
         userChats[chatIndex].isSeen = true;
 
-        const userChatsRef = doc(db, "userchats", currentUser.id);
+        const userChatsRef = doc(db, "userchats", currentUser.id); // Reference to the user's chats document
         
         try {
             await updateDoc(userChatsRef, {
-                chats: userChats,
+                chats: userChats, // Updating the user's chats document
             });
-            changeChat(chat.chatId, chat.user);
+            changeChat(chat.chatId, chat.user); // Changing the current chat
         } catch (err) {
             console.log(err);
         }
     };
 
+    // Filter chats based on search input
     const filteredChats = chats.filter((c) => c.user.username.toLowerCase().includes(input.toLowerCase()));
 
+    // JSX for ChatList component
     return (
         <div className='chatlist'>
             <div className='search'>
@@ -97,9 +102,10 @@ export const ChatList = () => {
                         </div>
                 </div>
              ))}
-            {addMode && <Adduser />}
+            {addMode && <Adduser />} {/* AddUser component */}
         </div>
     );
 };
 
+// Exporting chatList component as default
 export default ChatList;

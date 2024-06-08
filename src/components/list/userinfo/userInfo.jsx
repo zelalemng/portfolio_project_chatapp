@@ -1,10 +1,12 @@
+// import necessary libraries and components.
 import React from 'react'
 import './userInfo.css';
 import { useUserStore } from '../../../lib/userStore';
 
+// UserInfo component
 export const UserInfo = () => {
 
-    const { currentUser } = useUserStore();
+    const { currentUser } = useUserStore(); // Destructuring currentUser from user store
 
     return(
         <div className='userinfo'>
@@ -21,4 +23,5 @@ export const UserInfo = () => {
     );
 };
 
+// Exporting UserInfo component as default
 export default UserInfo;

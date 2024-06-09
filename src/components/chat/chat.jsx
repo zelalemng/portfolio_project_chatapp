@@ -9,6 +9,7 @@ import { useChatStore } from '../../lib/chatStore';
 import { useUserStore } from '../../lib/userStore';
 import { format } from 'timeago.js';
 
+// chat component
 export const Chat = () => {
 
     const [chat, setChat] = useState();

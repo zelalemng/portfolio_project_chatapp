@@ -7,7 +7,7 @@ import { arrayUnion, updateDoc, onSnapshot, doc, getDoc } from 'firebase/firesto
 import { db } from '../../lib/firebase'
 import { useChatStore } from '../../lib/chatStore';
 import { useUserStore } from '../../lib/userStore';
-import { format } from 'timeago.js';
+import { format } from 'timeago.js'; // Importing format function from timeago.js library
 
 // chat component
 export const Chat = () => {

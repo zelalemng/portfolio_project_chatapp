@@ -83,6 +83,7 @@ export const Chat = () => {
                         (c) => c.chatId === chatId
                     );
 
+                    // update the last message, seen status, and updating
                     userChatsData.chats[chatIndex].lastMessage = text;
                     userChatsData.chats[chatIndex].isSeen = id === currentUser.id ? true : false;
                     userChatsData.chats[chatIndex].updatedAt = Date.now();
@@ -164,4 +165,5 @@ export const Chat = () => {
         </div>
     );
 };
+// Exporting chat component as default
 export default Chat;
